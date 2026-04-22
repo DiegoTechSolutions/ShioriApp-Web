@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShioriApp - Mi Biblioteca</title>
+    <style>
+        /* Estilo base inspirado en Mihon (Dark Mode) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1f1f1f;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #bb86fc; /* Color acento tipo Mihon */
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        /* Rejilla de Mangas */
+        .manga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .manga-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .manga-card:hover {
+            transform: scale(1.05);
+        }
+
+        .manga-card img {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .manga-title {
+            padding: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Estilo para el buscador */
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            background-color: #2c2c2c;
+            color: white;
+            margin-bottom: 20px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ShioriApp</h1>
+</header>
+
+<div class="container">
+    <input type="text" class="search-bar" placeholder="Buscar en mis extensiones...">
+
+    <div class="manga-grid" id="manga-list">
+        <div class="manga-card">
+            <img src="https://via.placeholder.com/200x300?text=Manga+1" alt="Manga">
+            <div class="manga-title">Cargando...</div>
+        </div>
+        <div class="manga-card">
+            <img src="https://via.placeholder.com/200x300?text=Manga+2" alt="Manga">
+            <div class="manga-title">Esperando extensión</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Aquí es donde en el futuro conectaremos con tu Backend
+    console.log("ShioriApp inicializada. Lista para conectar con extensiones.");
+</script>
+
+</body>
+</html>
