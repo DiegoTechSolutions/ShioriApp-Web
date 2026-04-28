@@ -4,25 +4,25 @@ import { socialLinks, contactEmail } from '../data/social'
 
 export default function Footer() {
   return (
-    <footer className="bg-md-surface border-t border-md-surface-variant/20 mt-20">
+    <footer className="bg-md-surface/60 border-t border-md-surface-variant/20 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-500 rounded-lg flex items-center justify-center text-white font-bold">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-500 rounded-lg flex items-center justify-center text-white font-bold font-display">
                 S
               </div>
-              <span className="font-bold">ShioriApp</span>
+              <span className="font-bold font-display">ShioriApp</span>
             </div>
-            <p className="text-md-text-variant text-sm">
-              Lector de manga moderno para Android
+            <p className="text-md-text-variant text-sm leading-relaxed">
+              Lector moderno de manga para Android
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h3 className="font-semibold mb-4 text-md-text text-sm">Enlaces</h3>
+            <h3 className="font-semibold mb-4 text-md-text text-sm uppercase tracking-wide">Navegación</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/" className="text-md-text-variant hover:text-primary-400 transition-colors">
@@ -47,9 +47,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Info */}
+          {/* Legal */}
           <div>
-            <h3 className="font-semibold mb-4 text-md-text text-sm">Info</h3>
+            <h3 className="font-semibold mb-4 text-md-text text-sm uppercase tracking-wide">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#" className="text-md-text-variant hover:text-primary-400 transition-colors">
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Socials */}
           <div>
-            <h3 className="font-semibold mb-4 text-md-text text-sm">Síguenos</h3>
+            <h3 className="font-semibold mb-4 text-md-text text-sm uppercase tracking-wide">Síguenos</h3>
             <div className="flex gap-2">
               {socialLinks.map((link) => {
                 const iconMap = {
@@ -99,7 +99,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
+        {/* Bottom Section */}
         <div className="border-t border-md-surface-variant/20 pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
             <p className="text-md-text-variant">
@@ -110,7 +110,8 @@ export default function Footer() {
               className="text-md-text-variant hover:text-primary-400 transition-colors flex items-center gap-2"
             >
               <Mail size={16} />
-              {contactEmail}
+              <span className="hidden sm:inline">{contactEmail}</span>
+              <span className="sm:hidden">Contactar</span>
             </a>
           </div>
         </div>

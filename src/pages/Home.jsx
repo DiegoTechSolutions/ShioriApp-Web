@@ -4,60 +4,115 @@ import { socialLinks, contactEmail } from '../data/social'
 
 export default function Home() {
   return (
-    <main className="w-full">
-      {/* Hero Section - Inspirado en Mihon */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Background Gradient */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl opacity-20" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl opacity-20" />
+    <main className="w-full bg-md-bg text-md-text overflow-hidden">
+      {/* Hero Section - Simplificado y Moderno */}
+      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-20">
+        {/* Background - Minimalista */}
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute top-20 right-10 w-72 h-72 bg-primary-500/15 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl" />
         </div>
 
         {/* Content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="space-y-8 animate-slide-up">
-              {/* Brand */}
-              <div>
-                <h1 className="text-6xl sm:text-7xl font-bold mb-2">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
+            {/* Left - Phone Mockup - Mejorado */}
+            <div className="hidden lg:flex items-center justify-start">
+              <div className="relative w-56 h-80">
+                {/* Glow Background */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary-500/20 to-primary-600/15 rounded-2xl blur-xl" />
+
+                {/* Phone Frame */}
+                <div className="relative bg-gradient-to-br from-md-surface-variant to-md-surface rounded-2xl border-6 border-md-surface-variant shadow-xl overflow-hidden h-full">
+                  {/* Status Bar */}
+                  <div className="h-5 bg-md-surface/90 flex items-center justify-center text-xs text-md-text-variant">
+                    <div className="absolute left-3 text-xs font-medium">9:41</div>
+                    <div className="flex gap-0.5 text-xs">
+                      <span>📶</span>
+                      <span>📡</span>
+                      <span>🔋</span>
+                    </div>
+                  </div>
+
+                  {/* Screen Content */}
+                  <div className="h-full w-full bg-gradient-to-br from-primary-600/10 to-primary-900/5 flex flex-col items-center justify-center relative p-4">
+                    {/* Decorative Elements */}
+                    <div className="absolute inset-0 opacity-15">
+                      <div className="w-32 h-32 bg-primary-500 rounded-full blur-2xl absolute top-6 right-4" />
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative text-center space-y-3">
+                      <div className="text-5xl mb-1">📖</div>
+                      <h3 className="text-base font-bold text-white">ShioriApp</h3>
+                      <p className="text-xs text-md-text-variant font-medium">Lector de Manga</p>
+                      <div className="mt-4 space-y-1">
+                        <div className="h-1.5 bg-md-surface-variant/40 rounded-full w-20 mx-auto" />
+                        <div className="h-1.5 bg-md-surface-variant/25 rounded-full w-24 mx-auto" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content */}
+            <div className="space-y-5">
+              {/* Main Title */}
+              <div className="space-y-2">
+                <h1 className="text-4xl sm:text-5xl font-bold font-display">
                   <span className="text-white">Shiori</span>
-                  <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+                  <br />
+                  <span className="bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent">
                     App
                   </span>
                 </h1>
+                <p className="text-base sm:text-lg text-md-text-variant font-medium">
+                  Lee manga sin límites
+                </p>
               </div>
 
-              {/* Tagline */}
-              <h2 className="text-3xl sm:text-4xl font-semibold text-md-text-variant">
-                Lector de manga moderno
-              </h2>
-
               {/* Description */}
-              <p className="text-lg text-md-text-variant max-w-md leading-relaxed">
-                Descubre y lee manga, webtoons, cómics y más — más fácil que nunca en tu dispositivo Android.
+              <p className="text-sm sm:text-base text-md-text-variant leading-relaxed">
+                Descubre miles de manga, webtoons y cómics. Gratis, sin publicidades y con interfaz optimizada.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="https://play.google.com/store/apps/details?id=com.shioriapp"
-                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/50 text-center"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 text-sm"
                 >
-                  <Download size={20} />
+                  <Download size={18} />
                   Descargar
                 </a>
                 <a
                   href="#features"
-                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary-500/30 hover:border-primary-500 text-md-text hover:text-primary-400 font-semibold rounded-lg transition-all duration-300"
+                  className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary-500/40 hover:border-primary-400 text-md-text hover:text-primary-300 font-semibold rounded-lg transition-all duration-300 text-sm"
                 >
-                  Conocer Más
-                  <ArrowRight size={18} />
+                  Conocer más
+                  <ArrowRight size={16} />
                 </a>
               </div>
 
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-3 pt-3 border-t border-md-surface-variant/40">
+                <div>
+                  <div className="text-xl sm:text-2xl font-bold text-primary-400">10K+</div>
+                  <p className="text-xs text-md-text-variant">Títulos</p>
+                </div>
+                <div>
+                  <div className="text-xl sm:text-2xl font-bold text-primary-400">100K+</div>
+                  <p className="text-xs text-md-text-variant">Descargas</p>
+                </div>
+                <div>
+                  <div className="text-xl sm:text-2xl font-bold text-primary-400">4.8★</div>
+                  <p className="text-xs text-md-text-variant">Valoración</p>
+                </div>
+              </div>
+
               {/* Social Links */}
-              <div className="flex gap-3 pt-4">
+              <div className="flex gap-2 pt-2">
                 {socialLinks.map((link) => {
                   const iconMap = {
                     MessageCircle: MessageCircle,
@@ -73,108 +128,78 @@ export default function Home() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 flex items-center justify-center rounded-lg bg-md-surface hover:bg-primary-500/20 text-md-text-variant hover:text-primary-400 transition-all duration-200"
+                      className="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-500/10 hover:bg-primary-500/20 text-md-text-variant hover:text-primary-300 transition-all duration-200"
                       title={link.name}
                     >
-                      <Icon size={20} />
+                      <Icon size={18} />
                     </a>
                   )
                 })}
               </div>
             </div>
-
-            {/* Right - Phone Mockup */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="relative w-72 h-96">
-                {/* Phone Frame */}
-                <div className="absolute inset-0 bg-gradient-to-br from-md-surface-variant to-md-surface rounded-3xl border-8 border-md-surface-variant shadow-2xl overflow-hidden">
-                  {/* Screen Content */}
-                  <div className="w-full h-full bg-gradient-to-br from-primary-600/20 to-primary-900/20 flex items-center justify-center relative">
-                    {/* Animated Background */}
-                    <div className="absolute inset-0 opacity-30">
-                      <div className="w-32 h-32 bg-primary-500 rounded-full blur-3xl absolute top-4 right-4" />
-                      <div className="w-32 h-32 bg-primary-600 rounded-full blur-3xl absolute bottom-4 left-4" />
-                    </div>
-
-                    {/* Content */}
-                    <div className="relative text-center text-md-text-variant space-y-4 p-6">
-                      <div className="text-6xl mb-4">📚</div>
-                      <p className="font-semibold text-md-text text-xl">ShioriApp</p>
-                      <p className="text-xs text-md-text-variant">Lector de Manga</p>
-                    </div>
-                  </div>
-
-                  {/* Notch */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-md-surface rounded-b-3xl" />
-                </div>
-
-                {/* Glow Effect */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-3xl opacity-20 blur-2xl" />
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section - Estilo Mihon (3 columnas) */}
-      <section id="features" className="py-20 bg-md-surface">
+      {/* Features Section - Simplificada */}
+      <section id="features" className="py-20 bg-md-surface/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Title */}
-          <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold text-white mb-4">
+          {/* Section Title */}
+          <div className="mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold font-display text-white mb-4">
               Características Principales
             </h2>
-            <p className="text-md-text-variant text-lg max-w-2xl mx-auto">
+            <p className="text-lg text-md-text-variant max-w-2xl">
               Todo lo que necesitas para una experiencia de lectura perfecta
             </p>
           </div>
 
-          {/* Features Grid - 3 columnas como Mihon */}
+          {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="group text-center">
-              <div className="w-16 h-16 bg-primary-500/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-500/20 transition-colors">
-                <BookOpen className="text-primary-400" size={32} />
+            <div className="group p-8 rounded-2xl bg-md-bg/50 hover:bg-md-surface/60 transition-all duration-300 border border-md-surface-variant/30">
+              <div className="w-14 h-14 bg-primary-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-500/30 transition-colors">
+                <BookOpen className="text-primary-400" size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
+              <h3 className="text-xl font-bold text-white mb-3">
                 Lector Inteligente
               </h3>
-              <p className="text-md-text-variant leading-relaxed mb-4">
-                Interfaz optimizada para lectura fluida de manga y webtoons con múltiples modos de visualización.
+              <p className="text-md-text-variant leading-relaxed mb-4 text-sm">
+                Interfaz optimizada para lectura fluida con múltiples modos de visualización y ajustes personalizables.
               </p>
-              <a href="/gallery" className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors">
+              <a href="/gallery" className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors text-sm">
                 Ver más <ArrowRight size={16} />
               </a>
             </div>
 
             {/* Feature 2 */}
-            <div className="group text-center">
-              <div className="w-16 h-16 bg-primary-500/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-500/20 transition-colors">
-                <Palette className="text-primary-400" size={32} />
+            <div className="group p-8 rounded-2xl bg-md-bg/50 hover:bg-md-surface/60 transition-all duration-300 border border-md-surface-variant/30">
+              <div className="w-14 h-14 bg-primary-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-500/30 transition-colors">
+                <Palette className="text-primary-400" size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
+              <h3 className="text-xl font-bold text-white mb-3">
                 Personalización Total
               </h3>
-              <p className="text-md-text-variant leading-relaxed mb-4">
-                Tema oscuro nativo, fuentes personalizables y ajustes de lectura completamente a tu gusto.
+              <p className="text-md-text-variant leading-relaxed mb-4 text-sm">
+                Tema oscuro, fuentes ajustables y opciones de lectura completamente personalizables.
               </p>
-              <a href="/gallery" className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors">
+              <a href="/community" className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors text-sm">
                 Ver más <ArrowRight size={16} />
               </a>
             </div>
 
             {/* Feature 3 */}
-            <div className="group text-center">
-              <div className="w-16 h-16 bg-primary-500/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-500/20 transition-colors">
-                <Zap className="text-primary-400" size={32} />
+            <div className="group p-8 rounded-2xl bg-md-bg/50 hover:bg-md-surface/60 transition-all duration-300 border border-md-surface-variant/30">
+              <div className="w-14 h-14 bg-primary-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-500/30 transition-colors">
+                <Zap className="text-primary-400" size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Rápido y Potente
+              <h3 className="text-xl font-bold text-white mb-3">
+                Rápido y Libre
               </h3>
-              <p className="text-md-text-variant leading-relaxed mb-4">
-                Rendimiento optimizado, sin publicidades molestas, completamente gratuito y código abierto.
+              <p className="text-md-text-variant leading-relaxed mb-4 text-sm">
+                Rendimiento optimizado, sin publicidades, completamente gratuito y código abierto.
               </p>
-              <a href="/community" className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors">
+              <a href="/community" className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors text-sm">
                 Ver más <ArrowRight size={16} />
               </a>
             </div>
@@ -182,38 +207,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-md-bg border-y border-md-surface-variant/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl sm:text-5xl font-bold text-primary-400 mb-2">10K+</div>
-              <p className="text-md-text-variant">Mangas Disponibles</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl sm:text-5xl font-bold text-primary-400 mb-2">100K+</div>
-              <p className="text-md-text-variant">Descargas</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl sm:text-5xl font-bold text-primary-400 mb-2">4.8★</div>
-              <p className="text-md-text-variant">En Google Play</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Final */}
-      <section className="py-20 bg-md-surface">
+      {/* Call to Action Final */}
+      <section className="py-16 sm:py-20 bg-md-bg">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Listo para Comenzar?
+          <h2 className="text-4xl sm:text-5xl font-bold font-display text-white mb-6">
+            ¿Listo para Comenzar?
           </h2>
-          <p className="text-lg text-md-text-variant mb-8">
-            Descarga ShioriApp ahora y únete a miles de lectores de manga
+          <p className="text-lg text-md-text-variant mb-8 max-w-2xl mx-auto">
+            Descarga ShioriApp ahora y únete a miles de lectores disfrutando de manga sin límites.
           </p>
           <a
             href="https://play.google.com/store/apps/details?id=com.shioriapp"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/50"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30"
           >
             <Download size={20} />
             Descargar ShioriApp

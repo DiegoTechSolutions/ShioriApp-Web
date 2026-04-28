@@ -42,7 +42,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Roboto', 'sans-serif'],
+        sans: ['"Poppins"', '"Noto Sans JP"', 'sans-serif'],
+        jp: ['"Noto Sans JP"', '"Poppins"', 'sans-serif'],
+        display: ['"Playfair Display"', '"Noto Sans JP"', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in',

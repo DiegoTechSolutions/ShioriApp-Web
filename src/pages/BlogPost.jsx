@@ -9,13 +9,13 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <main className="w-full py-20">
+      <main className="w-full py-20 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Artículo no encontrado</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold font-display text-white mb-4">Artículo no encontrado</h1>
           <p className="text-md-text-variant mb-8">El artículo que buscas no existe.</p>
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30"
           >
             <ArrowLeft size={18} />
             Volver al Blog
@@ -28,7 +28,7 @@ export default function BlogPost() {
   const relatedPosts = blogPosts.filter((p) => p.category === post.category && p.id !== post.id).slice(0, 3)
 
   return (
-    <main className="w-full py-20">
+    <main className="w-full py-20 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <button
@@ -42,27 +42,27 @@ export default function BlogPost() {
         {/* Article */}
         <article className="mb-12">
           {/* Image */}
-          <div className="w-full h-96 bg-gradient-to-br from-primary-500/10 to-primary-600/10 rounded-lg flex items-center justify-center text-8xl mb-8 border border-primary-500/20">
+          <div className="w-full h-96 bg-gradient-to-br from-primary-500/15 to-primary-600/10 rounded-2xl flex items-center justify-center text-8xl mb-8 border border-primary-500/30">
             📰
           </div>
 
           {/* Meta */}
-          <div className="flex flex-wrap gap-6 items-center mb-6 pb-6 border-b border-md-surface-variant/20">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 items-start sm:items-center mb-6 pb-6 border-b border-md-surface-variant/30">
             <div className="flex items-center gap-2 text-md-text-variant">
               <Calendar size={16} />
-              <span>{new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              <span className="text-sm">{new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
             </div>
             <div className="flex items-center gap-2 text-md-text-variant">
               <User size={16} />
-              <span>{post.author}</span>
+              <span className="text-sm">{post.author}</span>
             </div>
-            <span className="px-3 py-1 bg-primary-500/20 text-primary-300 text-sm rounded-full capitalize">
+            <span className="px-3 py-1 bg-primary-500/20 text-primary-300 text-xs font-medium rounded-full capitalize">
               {post.category}
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="text-5xl font-bold text-white mb-6">{post.title}</h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-white mb-6">{post.title}</h1>
 
           {/* Content */}
           <div className="prose prose-invert max-w-none">
@@ -102,16 +102,16 @@ export default function BlogPost() {
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <section className="mt-16">
-            <h2 className="text-3xl font-bold text-white mb-8">Artículos Relacionados</h2>
+          <section className="mt-16 pt-12 border-t border-md-surface-variant/30">
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-8">Artículos Relacionados</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedPosts.map((relatedPost) => (
                 <Link
                   key={relatedPost.id}
                   to={`/blog/${relatedPost.slug}`}
-                  className="group p-4 rounded-lg bg-md-surface border border-md-surface-variant/20 hover:border-primary-500/50 transition-all duration-300"
+                  className="group p-6 rounded-2xl bg-md-bg/50 border border-md-surface-variant/30 hover:border-primary-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10"
                 >
-                  <h3 className="font-semibold text-md-text group-hover:text-primary-400 transition-colors mb-2 line-clamp-2">
+                  <h3 className="font-bold text-md-text group-hover:text-primary-400 transition-colors mb-2 line-clamp-2 font-display">
                     {relatedPost.title}
                   </h3>
                   <p className="text-sm text-md-text-variant line-clamp-2">{relatedPost.excerpt}</p>

@@ -11,23 +11,23 @@ export default function Blog() {
   const filtered = selectedCategory === 'all' ? blogPosts : blogPosts.filter((p) => p.category === selectedCategory)
 
   return (
-    <main className="w-full py-20">
+    <main className="w-full py-20 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-16">
           <SectionTitle title="Blog" subtitle="Noticias, tutoriales y actualizaciones sobre ShioriApp" />
         </div>
 
         {/* Filters */}
-        <div className="mb-12 flex flex-wrap gap-3">
+        <div className="mb-12 flex flex-wrap gap-3 justify-center">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 capitalize ${
+              className={`px-5 py-2 rounded-lg font-medium transition-all duration-300 capitalize text-sm sm:text-base ${
                 selectedCategory === cat
-                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/50'
-                  : 'bg-md-surface hover:bg-md-surface-variant text-md-text-variant hover:text-md-text border border-md-surface-variant/20'
+                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/40'
+                  : 'bg-md-surface/60 hover:bg-md-surface border border-md-surface-variant/40 text-md-text-variant hover:text-md-text'
               }`}
             >
               {cat === 'all' ? 'Todos' : cat}
@@ -44,7 +44,7 @@ export default function Blog() {
 
         {/* Empty State */}
         {filtered.length === 0 && (
-          <div className="text-center py-12">
+          <div className="text-center py-16">
             <p className="text-md-text-variant text-lg">No hay artículos en esta categoría</p>
           </div>
         )}

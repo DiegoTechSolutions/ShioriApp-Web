@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Menu, X, Github, MessageCircle, Twitter, Instagram, Moon, Sun } from 'lucide-react'
+import { Menu, X, Github, MessageCircle, Twitter, Instagram } from 'lucide-react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isDark, setIsDark] = useState(true)
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
@@ -14,15 +13,22 @@ export default function Navbar() {
     { label: 'Comunidad', to: '/community' },
   ]
 
+  const socialIcons = [
+    { icon: Github, url: 'https://github.com/shioriapp', title: 'GitHub' },
+    { icon: MessageCircle, url: 'https://discord.gg/shioriapp', title: 'Discord' },
+    { icon: Twitter, url: 'https://twitter.com/shioriapp', title: 'Twitter' },
+    { icon: Instagram, url: 'https://instagram.com/shioriapp', title: 'Instagram' },
+  ]
+
   return (
-    <header className="sticky top-0 z-50 bg-md-bg/95 backdrop-blur-md border-b border-md-surface-variant/20">
+    <header className="sticky top-0 z-50 bg-md-bg/90 backdrop-blur-md border-b border-md-surface-variant/20">
       <nav className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-500 rounded-lg flex items-center justify-center text-white font-bold text-lg">
+          <div className="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-500 rounded-lg flex items-center justify-center text-white font-bold text-lg font-display">
             S
           </div>
-          <span className="text-lg font-bold text-white hidden sm:inline">ShioriApp</span>
+          <span className="text-lg font-bold text-white hidden sm:inline font-display">ShioriApp</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -38,46 +44,25 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right Side - Social + Theme */}
-        <div className="flex items-center gap-4">
+        {/* Right Side */}
+        <div className="flex items-center gap-3 sm:gap-4">
           {/* Desktop Social Icons */}
-          <div className="hidden sm:flex items-center gap-2">
-            <a
-              href="https://github.com/shioriapp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-md-text-variant hover:text-primary-400 transition-colors"
-              title="GitHub"
-            >
-              <Github size={18} />
-            </a>
-            <a
-              href="https://discord.gg/shioriapp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-md-text-variant hover:text-primary-400 transition-colors"
-              title="Discord"
-            >
-              <MessageCircle size={18} />
-            </a>
-            <a
-              href="https://twitter.com/shioriapp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-md-text-variant hover:text-primary-400 transition-colors"
-              title="Twitter"
-            >
-              <Twitter size={18} />
-            </a>
-            <a
-              href="https://instagram.com/shioriapp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-md-text-variant hover:text-primary-400 transition-colors"
-              title="Instagram"
-            >
-              <Instagram size={18} />
-            </a>
+          <div className="hidden sm:flex items-center gap-1">
+            {socialIcons.map((social, idx) => {
+              const Icon = social.icon
+              return (
+                <a
+                  key={idx}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-md-text-variant hover:text-primary-400 transition-colors"
+                  title={social.title}
+                >
+                  <Icon size={18} />
+                </a>
+              )
+            })}
           </div>
 
           {/* Download Button */}
@@ -100,14 +85,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-md-surface border-b border-md-surface-variant/20 animate-fade-in">
-          <div className="px-4 py-4 space-y-3">
+        <div className="md:hidden bg-md-surface/80 border-b border-md-surface-variant/20 animate-fade-in">
+          <div className="px-4 py-4 space-y-2">
             {links.map((link) => (
               <Link
                 key={link.label}
                 to={link.to}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 text-md-text hover:text-primary-400 hover:bg-md-bg rounded-lg transition-colors"
+                className="block px-4 py-3 text-md-text hover:text-primary-400 hover:bg-md-bg/60 rounded-lg transition-colors font-medium"
               >
                 {link.label}
               </Link>
@@ -115,10 +100,29 @@ export default function Navbar() {
             <a
               href="https://play.google.com/store/apps/details?id=com.shioriapp"
               onClick={() => setIsOpen(false)}
-              className="block px-4 py-2 bg-primary-500 text-white rounded-lg font-semibold text-center hover:bg-primary-600 transition-colors"
+              className="block px-4 py-3 bg-primary-500 text-white rounded-lg font-semibold text-center hover:bg-primary-600 transition-colors"
             >
               Descargar
             </a>
+
+            {/* Mobile Social Icons */}
+            <div className="flex items-center gap-2 px-4 pt-4 border-t border-md-surface-variant/30 mt-4">
+              {socialIcons.map((social, idx) => {
+                const Icon = social.icon
+                return (
+                  <a
+                    key={idx}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 p-2 text-center text-md-text-variant hover:text-primary-400 hover:bg-md-bg/40 rounded-lg transition-colors"
+                    title={social.title}
+                  >
+                    <Icon size={18} className="mx-auto" />
+                  </a>
+                )
+              })}
+            </div>
           </div>
         </div>
       )}

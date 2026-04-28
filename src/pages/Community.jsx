@@ -14,7 +14,7 @@ export default function Community() {
   }
 
   return (
-    <main className="w-full py-20">
+    <main className="w-full py-20 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16">
@@ -41,12 +41,12 @@ export default function Community() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-6 rounded-lg bg-md-surface border border-md-surface-variant/20 hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10"
+                className="group p-6 rounded-2xl bg-md-bg/50 border border-md-surface-variant/30 hover:border-primary-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10"
               >
-                <div className="w-12 h-12 bg-primary-500/10 group-hover:bg-primary-500/20 rounded-lg flex items-center justify-center mb-4 transition-colors">
-                  <Icon className="text-primary-400 group-hover:text-primary-300 transition-colors" size={24} />
+                <div className="w-14 h-14 bg-primary-500/15 group-hover:bg-primary-500/25 rounded-lg flex items-center justify-center mb-4 transition-colors">
+                  <Icon className="text-primary-400 group-hover:text-primary-300 transition-colors" size={28} />
                 </div>
-                <h3 className="text-lg font-semibold text-white group-hover:text-primary-400 transition-colors mb-2">
+                <h3 className="text-lg font-bold text-white group-hover:text-primary-400 transition-colors mb-2 font-display">
                   {link.name}
                 </h3>
                 <p className="text-md-text-variant text-sm">Síguenos en {link.name}</p>
@@ -59,23 +59,23 @@ export default function Community() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Contact Info */}
           <div>
-            <h2 className="text-3xl font-bold text-white mb-6">Contacta con Nosotros</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">Contacta con Nosotros</h2>
             <p className="text-md-text-variant mb-8">
               ¿Tienes preguntas, sugerencias o reportes de errores? Nos encantaría escucharte. Contáctanos directamente por email.
             </p>
 
             <button
               onClick={handleEmailClick}
-              className="group flex items-center gap-3 px-6 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/50 mb-8"
+              className="group flex items-center justify-center sm:justify-start gap-3 w-full sm:w-auto px-6 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 mb-8"
             >
               <Mail size={20} />
-              Enviar Email a {contactEmail}
+              Enviar Email
             </button>
 
             {/* FAQ */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white">Preguntas Frecuentes</h3>
-              <details className="group p-4 bg-md-surface rounded-lg border border-md-surface-variant/20 hover:border-primary-500/30 transition-all">
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-white font-display">Preguntas Frecuentes</h3>
+              <details className="group p-4 bg-md-bg/50 rounded-lg border border-md-surface-variant/30 hover:border-primary-500/40 transition-all">
                 <summary className="cursor-pointer font-medium text-md-text group-hover:text-primary-400 transition-colors">
                   ¿Cuándo estará disponible en iOS?
                 </summary>
@@ -84,7 +84,7 @@ export default function Community() {
                 </p>
               </details>
 
-              <details className="group p-4 bg-md-surface rounded-lg border border-md-surface-variant/20 hover:border-primary-500/30 transition-all">
+              <details className="group p-4 bg-md-bg/50 rounded-lg border border-md-surface-variant/30 hover:border-primary-500/40 transition-all">
                 <summary className="cursor-pointer font-medium text-md-text group-hover:text-primary-400 transition-colors">
                   ¿Es gratuita la aplicación?
                 </summary>
@@ -93,7 +93,7 @@ export default function Community() {
                 </p>
               </details>
 
-              <details className="group p-4 bg-md-surface rounded-lg border border-md-surface-variant/20 hover:border-primary-500/30 transition-all">
+              <details className="group p-4 bg-md-bg/50 rounded-lg border border-md-surface-variant/30 hover:border-primary-500/40 transition-all">
                 <summary className="cursor-pointer font-medium text-md-text group-hover:text-primary-400 transition-colors">
                   ¿Dónde puedo reportar un error?
                 </summary>
@@ -106,51 +106,51 @@ export default function Community() {
 
           {/* Contact Form */}
           <div>
-            <h2 className="text-3xl font-bold text-white mb-6">Formulario de Contacto</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">Formulario de Contacto</h2>
             <form onSubmit={handleContactSubmit} className="space-y-4">
               <div>
-                <label className="block text-md-text font-medium mb-2">Nombre</label>
+                <label className="block text-md-text font-medium mb-2 text-sm">Nombre</label>
                 <input
                   type="text"
                   required
-                  className="w-full px-4 py-2 bg-md-surface border border-md-surface-variant/20 rounded-lg text-md-text placeholder-md-text-variant focus:outline-none focus:border-primary-500 transition-colors"
+                  className="w-full px-4 py-3 bg-md-bg border border-md-surface-variant/30 rounded-lg text-md-text placeholder-md-text-variant focus:outline-none focus:border-primary-500 transition-colors text-sm"
                   placeholder="Tu nombre"
                 />
               </div>
 
               <div>
-                <label className="block text-md-text font-medium mb-2">Email</label>
+                <label className="block text-md-text font-medium mb-2 text-sm">Email</label>
                 <input
                   type="email"
                   required
-                  className="w-full px-4 py-2 bg-md-surface border border-md-surface-variant/20 rounded-lg text-md-text placeholder-md-text-variant focus:outline-none focus:border-primary-500 transition-colors"
+                  className="w-full px-4 py-3 bg-md-bg border border-md-surface-variant/30 rounded-lg text-md-text placeholder-md-text-variant focus:outline-none focus:border-primary-500 transition-colors text-sm"
                   placeholder="tu@email.com"
                 />
               </div>
 
               <div>
-                <label className="block text-md-text font-medium mb-2">Asunto</label>
+                <label className="block text-md-text font-medium mb-2 text-sm">Asunto</label>
                 <input
                   type="text"
                   required
-                  className="w-full px-4 py-2 bg-md-surface border border-md-surface-variant/20 rounded-lg text-md-text placeholder-md-text-variant focus:outline-none focus:border-primary-500 transition-colors"
+                  className="w-full px-4 py-3 bg-md-bg border border-md-surface-variant/30 rounded-lg text-md-text placeholder-md-text-variant focus:outline-none focus:border-primary-500 transition-colors text-sm"
                   placeholder="Asunto del mensaje"
                 />
               </div>
 
               <div>
-                <label className="block text-md-text font-medium mb-2">Mensaje</label>
+                <label className="block text-md-text font-medium mb-2 text-sm">Mensaje</label>
                 <textarea
                   required
                   rows={5}
-                  className="w-full px-4 py-2 bg-md-surface border border-md-surface-variant/20 rounded-lg text-md-text placeholder-md-text-variant focus:outline-none focus:border-primary-500 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-md-bg border border-md-surface-variant/30 rounded-lg text-md-text placeholder-md-text-variant focus:outline-none focus:border-primary-500 transition-colors resize-none text-sm"
                   placeholder="Tu mensaje..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/50"
+                className="w-full px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30"
               >
                 Enviar Mensaje
               </button>
@@ -161,15 +161,15 @@ export default function Community() {
         {/* Community Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-md-surface-variant/20">
           <div className="text-center">
-            <div className="text-4xl font-bold text-primary-400 mb-2">1.2K+</div>
+            <div className="text-4xl sm:text-5xl font-bold font-display text-primary-400 mb-2">1.2K+</div>
             <p className="text-md-text-variant">Miembros en Discord</p>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-primary-400 mb-2">500+</div>
+            <div className="text-4xl sm:text-5xl font-bold font-display text-primary-400 mb-2">500+</div>
             <p className="text-md-text-variant">Estrellas en GitHub</p>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-primary-400 mb-2">100K+</div>
+            <div className="text-4xl sm:text-5xl font-bold font-display text-primary-400 mb-2">100K+</div>
             <p className="text-md-text-variant">Descargas Totales</p>
           </div>
         </div>

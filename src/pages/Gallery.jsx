@@ -11,10 +11,10 @@ export default function Gallery() {
   const filtered = selectedCategory === 'all' ? screenshots : screenshots.filter((s) => s.category === selectedCategory)
 
   return (
-    <main className="w-full py-20">
+    <main className="w-full py-20 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-16">
           <SectionTitle
             title="Galería Completa"
             subtitle="Explora todas las vistas e interfaces de ShioriApp"
@@ -27,10 +27,10 @@ export default function Gallery() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 capitalize ${
+              className={`px-5 py-2 rounded-lg font-medium transition-all duration-300 capitalize text-sm sm:text-base ${
                 selectedCategory === cat
-                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/50'
-                  : 'bg-md-surface hover:bg-md-surface-variant text-md-text-variant hover:text-md-text border border-md-surface-variant/20'
+                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/40'
+                  : 'bg-md-surface/60 hover:bg-md-surface border border-md-surface-variant/40 text-md-text-variant hover:text-md-text'
               }`}
             >
               {cat === 'all' ? 'Todos' : cat}
@@ -47,19 +47,19 @@ export default function Gallery() {
 
         {/* Empty State */}
         {filtered.length === 0 && (
-          <div className="text-center py-12">
+          <div className="text-center py-16">
             <p className="text-md-text-variant text-lg">No hay capturas en esta categoría</p>
           </div>
         )}
 
         {/* Info Box */}
-        <div className="bg-md-surface border border-primary-500/30 rounded-lg p-8 text-center">
-          <p className="text-md-text-variant mb-4">
+        <div className="bg-md-surface/50 border border-primary-500/30 rounded-2xl p-8 text-center">
+          <p className="text-md-text-variant mb-6 text-lg">
             ¿Te gustaría ver más capturas? Comparte tus sugerencias en nuestra comunidad.
           </p>
           <a
             href="/community"
-            className="inline-flex px-6 py-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-colors"
+            className="inline-flex px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30"
           >
             Ir a Comunidad
           </a>
